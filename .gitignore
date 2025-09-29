@@ -36,11 +36,11 @@ captures/
 Thumbs.db
 
 # Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pyc
+#__pycache__/
+#*.pyc
+#*.pyo
+#*.pyd
+#.pyc
 
 # Virtual environments
 venv/
