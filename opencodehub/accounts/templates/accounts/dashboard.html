@@ -24,6 +24,7 @@
                     </div>
                     
                     <div class="row g-3 mb-4">
+                        <!-- PROJECTS CARD -->
                         <div class="col-md-4">
                             <div class="card bg-light border-0 text-center stat-card">
                                 <div class="card-body">
@@ -33,6 +34,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- FILES CARD -->
                         <div class="col-md-4">
                             <div class="card bg-light border-0 text-center stat-card">
                                 <div class="card-body">
@@ -42,6 +44,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- COMMENTS CARD -->
                         <div class="col-md-4">
                             <div class="card bg-light border-0 text-center stat-card">
                                 <div class="card-body">
@@ -54,16 +57,21 @@
                     </div>
                     
                     <div class="row g-3 mb-4">
+                        <!-- CREATE PROJECT BUTTON -->
                         <div class="col-md-4">
                             <a href="{% url 'create_project' %}" class="btn btn-primary btn-lg w-100" style="border-radius: 12px;">
                                 <i class="fas fa-plus"></i> Create Project
                             </a>
                         </div>
+
+                        <!-- MY PROJECTS BUTTON -->
                         <div class="col-md-4">
                             <a href="{% url 'my_projects' %}" class="btn btn-outline-primary btn-lg w-100" style="border-radius: 12px;">
                                 <i class="fas fa-folder"></i> My Projects
                             </a>
                         </div>
+
+                        <!-- BROWSE BUTTON -->
                         <div class="col-md-4">
                             <a href="{% url 'browse_projects' %}" class="btn btn-outline-primary btn-lg w-100" style="border-radius: 12px;">
                                 <i class="fas fa-globe"></i> Browse
