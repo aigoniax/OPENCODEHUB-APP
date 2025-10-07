@@ -16,7 +16,27 @@
   <p>{{ project.description }}</p>
   <small>Owner: {{ project.owner.username }}</small>
 
+  <!-- Shareable Link Section -->
+  <div class="card mt-4 mb-4 border-0 shadow-sm" style="background: rgba(255, 255, 255, 0.95); border-radius: 15px;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <i class="fas fa-share-alt text-primary"></i> Share This Project
+      </h5>
+      <p class="text-muted small mb-3">Copy this link to share your project with others</p>
+      <div class="input-group">
+        <input type="text" class="form-control" id="shareableLink" value="{{ request.scheme }}://{{ request.get_host }}{% url 'project_detail' project.id %}" readonly style="border-radius: 12px 0 0 12px; background: #f8f9fa;">
+        <button class="btn btn-primary" type="button" onclick="copyShareLink()" style="border-radius: 0 12px 12px 0;">
+          <i class="fas fa-copy"></i> Copy Link
+        </button>
+      </div>
+      <small id="copyFeedback" class="text-success" style="display: none;">
+        <i class="fas fa-check-circle"></i> Link copied to clipboard!
+      </small>
+    </div>
+  </div>
+
   <hr>
+  <h4>Files</h4>
   {% if files %}
     <ul>
       {% for file in files %}
@@ -99,4 +119,28 @@
     transform: rotate(180deg) translateX(4px);
   }
 </style>
+
+<script>
+  function copyShareLink() {
+    const linkInput = document.getElementById('shareableLink');
+    const feedback = document.getElementById('copyFeedback');
+    
+    // Select and copy the text
+    linkInput.select();
+    linkInput.setSelectionRange(0, 99999); // For mobile devices
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(linkInput.value).then(() => {
+      // Show success feedback
+      feedback.style.display = 'block';
+      
+      // Hide feedback after 3 seconds
+      setTimeout(() => {
+        feedback.style.display = 'none';
+      }, 3000);
+    }).catch(err => {
+      alert('Failed to copy link. Please copy manually.');
+    });
+  }
+</script>
 {% endblock %}
