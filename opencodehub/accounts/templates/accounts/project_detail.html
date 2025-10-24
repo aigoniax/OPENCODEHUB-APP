@@ -59,7 +59,7 @@
           >
           <button 
             class="btn btn-success" 
-            onclick="copyShareLink()"
+            onclick="copyShareLink(event)"
             style="border-radius: 0 12px 12px 0;"
           >
             <i class="fas fa-copy"></i> Copy
@@ -311,7 +311,7 @@
 </style>
 
 <script>
-function copyShareLink() {
+function copyShareLink(event) {
   const linkInput = document.getElementById('shareableLink');
   linkInput.select();
   linkInput.setSelectionRange(0, 99999); // For mobile devices
